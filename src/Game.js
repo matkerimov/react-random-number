@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState, } from "react";
 
 
 const Game = () => {
@@ -25,10 +25,7 @@ const Game = () => {
             setYou(+you + 1)
         }
     }
-    useEffect(() =>{
-        localStorage.setItem('person', you)
-        localStorage.setItem('computer', bot)
-    },[message])
+
 
 
     const newGame = () => {
