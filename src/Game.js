@@ -16,13 +16,7 @@ const Game = () => {
     const checkNumber = () => {
         setFreeAttempts(freeAttempts - 1)
         setFreeAttempts(0)
-    }
-    newGame(() =>{
-        localStorage.setItem('person', you)
-        localStorage.setItem('computer', bot)
-    },[message])
 
-    checkNumber(() => {
         if (random !== +guess && freeAttempts === 0) {
             setMessage("You Loose")
             setBot(+bot + 1)
@@ -30,7 +24,12 @@ const Game = () => {
             setMessage("You Win")
             setYou(+you + 1)
         }
-    }, [freeAttempts, guess])
+    }
+    useEffect(() =>{
+        localStorage.setItem('person', you)
+        localStorage.setItem('computer', bot)
+    },[message])
+
 
     const newGame = () => {
         setFreeAttempts(3)
